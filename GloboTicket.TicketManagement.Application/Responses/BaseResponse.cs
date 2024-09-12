@@ -1,5 +1,6 @@
 ﻿namespace GloboTicket.TicketManagement.Application.Responses
 {
+    //used by commands to return res[[ponse to the consumer 
     public class BaseResponse
     {
         public BaseResponse()

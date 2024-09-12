@@ -5,7 +5,7 @@ using MediatR;
 
 namespace GloboTicket.TicketManagement.Application.Features.Categories.Commands.CreateCateogry
 {
-    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CreateCategoryCommandResponse>
+    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CreateCategoryCommandResponse> //return create custom response 
     {
         private readonly IAsyncRepository<Category> _categoryRepository;
         private readonly IMapper _mapper;
@@ -18,6 +18,7 @@ namespace GloboTicket.TicketManagement.Application.Features.Categories.Commands.
 
         public async Task<CreateCategoryCommandResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
+            //validation 
             var createCategoryCommandResponse = new CreateCategoryCommandResponse();
 
             var validator = new CreateCategoryCommandValidator();

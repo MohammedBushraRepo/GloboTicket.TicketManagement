@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace GloboTicket.TicketManagement.Application.Features.Events.Commands.CreateEvent
 {
-    public class CreateEventCommandValidator : AbstractValidator<CreateEventCommand>
+    public class CreateEventCommandValidator : AbstractValidator<CreateEventCommand> //validate the incomming request
     {
         private readonly IEventRepository _eventRepository;
-        public CreateEventCommandValidator(IEventRepository eventRepository)
+        public CreateEventCommandValidator(IEventRepository eventRepository) //add your request validation
         {
             _eventRepository = eventRepository;
 
@@ -32,7 +32,7 @@ namespace GloboTicket.TicketManagement.Application.Features.Events.Commands.Crea
                 .GreaterThan(0);
         }
 
-        private async Task<bool> EventNameAndDateUnique(CreateEventCommand e, CancellationToken token)
+        private async Task<bool> EventNameAndDateUnique(CreateEventCommand e, CancellationToken token)  //Apply Custom validation 
         {
             return !(await _eventRepository.IsEventNameAndDateUnique(e.Name, e.Date));
         }

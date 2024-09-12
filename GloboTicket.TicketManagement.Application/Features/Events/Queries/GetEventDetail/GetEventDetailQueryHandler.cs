@@ -24,7 +24,7 @@ namespace GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEv
             var @event = await _eventRepository.GetByIdAsync(request.Id);
             var eventDetailDto = _mapper.Map<EventDetailVm>(@event);
             
-            var category = await _categoryRepository.GetByIdAsync(@event.CategoryId);
+            var category = await _categoryRepository.GetByIdAsync(@event.CategoryId); //because get by id for event will not get category so we should take it from here and mapp it to the view module which contains object from both event and categories 
 
             if (category == null)
             {

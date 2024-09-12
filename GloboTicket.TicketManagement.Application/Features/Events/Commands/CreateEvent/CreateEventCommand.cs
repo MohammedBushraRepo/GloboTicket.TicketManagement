@@ -2,7 +2,7 @@
 
 namespace GloboTicket.TicketManagement.Application.Features.Events.Commands.CreateEvent
 {
-    public class CreateEventCommand: IRequest<Guid>
+    public class CreateEventCommand: IRequest<Guid> //when creating new event will return to the consumer th ID of the newly created event 
     {
         public string Name { get; set; } = string.Empty;
         public int Price { get; set; }
